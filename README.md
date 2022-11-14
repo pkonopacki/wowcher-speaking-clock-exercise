@@ -31,6 +31,6 @@ The conversion logic is contained in single static method SpeakingClock.sayTheTi
 
 The "test" folder was moved under the "src" to comply with mvn project rules, there are no packages crated.
 
-Please use the command "mvn clean test" and the execution report can be found in the <path to the parent folder>/wowcher-speaking-clock-exercise-9846de457d98/target/surefire-reports
+Please use the command "mvn clean test" and the execution report can be found in the <path to the parent folder>/wowcher-speaking-clock-exercise/target/surefire-reports
 
 The test report should be printed on the screen as well.
