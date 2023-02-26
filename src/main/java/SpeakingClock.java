@@ -1,3 +1,7 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
 public class SpeakingClock {
 
 
@@ -11,11 +15,27 @@ public class SpeakingClock {
                             "forty", "forty one", "forty two", "forty three", "forty four",
                             "forty five", "forty six", "forty seven", "forty eight", "forty nine",
                             "fifty", "fifty one", "fifty two", "fifty three", "fifty four",
-                            "fifty five", "fifty six", "fifty seven", "fifty eight", "fifty nine"
+                            "fifty five", "fifty six", "fifty seven", "fifty eight", "fifty nine",
+                            "sixty"
                             };
 
+        Optional<String> s = Arrays.stream(numbers)
+                .filter(n -> n.equals("sixty"))
+                .findFirst();
+
+        List<String> numbersList = Arrays.asList(numbers);
+
+        if (s.isPresent()) {
+            numbersList.remove(s.get());
+
+        }
+
+        String[] numbersAfterConversion = new String[numbersList.size()];
+        numbersList.toArray(numbersAfterConversion);
+
+
         String result = "It's ";
-        int hour = TimeParser.parseHour(input);
+        int hour = TimeParser.parseHour((input));
         int minutes = TimeParser.parseMinutes(input);
 
         if (hour == -1 || minutes == -1) {
@@ -28,10 +48,10 @@ public class SpeakingClock {
             result += "Midday";
 
         } else if (hour != 0 && hour != 12 && minutes == 0) {
-            result += numbers[hour];
+            result += numbersAfterConversion[hour];
 
         } else {
-            result += numbers[hour] + " " + numbers[minutes];
+            result += numbersAfterConversion[hour] + " " + numbersAfterConversion[minutes];
 
         }
 

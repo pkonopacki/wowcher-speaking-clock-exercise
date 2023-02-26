@@ -39,6 +39,17 @@ public class SpeakingClockTest {
     }
 
     @Test
+    public void givenTimeInHoursAndMinutes_whenMinutesNotEqualsZero_and_HourNotEqualsZero_andHourNotEqualsTwelve_thenReturnTimeUsingWords() {
+//        String input = "01:00";
+//        String expected = "It's one thirty";
+//
+//        String actual = SpeakingClock.sayTheTime(input);
+//
+//        assertNotNull(actual);
+//        assertTrue(expected.equals(actual));
+    }
+
+    @Test
     public void givenTimeInHoursAndMinutes_whenTimeLaterThanTenEarlierThanTwenty_thenReturnTimeUsingWords() {
         String input = "11:12";
         String expected = "It's eleven twelve";
@@ -80,6 +91,16 @@ public class SpeakingClockTest {
 
         assertNotNull(actual);
         assertTrue(expected.equals(actual));
+    }
+
+    @Test
+    public void givenTimeInHoursAndMinutes_whenTimePastNoonBeforeMidnight_thenReturnTimeUsingWords() {
+        String input = "14:57";
+        String expected = "It's Midday";
+
+        String actual = SpeakingClock.sayTheTime(input);
+
+        assertNotNull(actual);
     }
 
     @Test
